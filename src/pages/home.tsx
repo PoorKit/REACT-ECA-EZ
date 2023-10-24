@@ -14,15 +14,13 @@ export default function Home() {
 
   return (
     <div className="flex">
-      <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div className="flex flex-col w-full">
         <Navbar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex overflow-y-hidden">
           <ProductList />
         </div>
       </div>
-
-
+      <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
     </div>
   );
 }

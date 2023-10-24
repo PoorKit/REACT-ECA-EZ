@@ -5,12 +5,14 @@ import { Product } from '../interfaces/ProductInterface';
 type ProductContextValue = {
     products: Product[];
     setProducts: (products: Product[]) => void;
-    // page: number;
-    // limit: number;
-    // changePage: (newPage: number) => void;
+    categories: string[];
+    setCategories: (categories: string[]) => void;
+    selectedCategory: string | null;
+    setSelectedCategory: (selectedCategory: string | null) => void;
+    searchString: string | null;
+    setSearchString: (searchString: string | null) => void;
 };
 
-// Create the ProductContext
 const ProductContext = createContext<ProductContextValue | undefined>(undefined);
 
 export const useProductContext = () => {
@@ -25,11 +27,14 @@ type ProductContextProviderProps = {
     children: ReactNode;
 };
 
-// Create the ProductContextProvider
 export const ProductContextProvider: React.FC<ProductContextProviderProps> = ({ children }) => {
     const [products, setProducts] = useState<Product[]>([]);
+    const [categories, setCategories] = useState<string[]>([]);
+    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+    const [searchString, setSearchString] = useState<string | null>(null);
 
-    const contextValue = { products, setProducts };
+
+    const contextValue = { products, setProducts, categories, setCategories, searchString, setSearchString, selectedCategory, setSelectedCategory };
 
     return (
         <ProductContext.Provider value={contextValue}>

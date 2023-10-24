@@ -12,7 +12,6 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
 
   useEffect(() => {
     if (descriptionRef.current) {
-      // Get the computed height of the description element
       const height = parseFloat(getComputedStyle(descriptionRef.current).height);
       setDescriptionHeight(height);
     }
@@ -29,10 +28,10 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   return (
     <li className="product-item bg-white rounded p-4 flex-grow flex flex-col">
       <img src={product.image} alt={product.title} className="aspect-square object-contain" />
-      <h2>{product.title}</h2>
+      <h2 className='text-xl font-bold'>{product.title}</h2>
       <p
         ref={descriptionRef}
-        className={`description ${expanded || (descriptionHeight && descriptionHeight < 80) ? '' : 'line-clamp-4'}`}
+        className={`description ${expanded || (descriptionHeight && descriptionHeight < 80) ? '' : 'line-clamp-4'} text-slate-500`}
       >
         {product.description}
       </p>

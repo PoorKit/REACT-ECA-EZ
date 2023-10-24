@@ -1,5 +1,5 @@
 {
-  "name": "stackblitz-starters-hfett6",
+  "name": "react-eca-ez",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
@@ -16,6 +16,19 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "react-scripts": "latest"
+    "react-scripts": "latest",
+    "tailwindcss": "^3.3.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

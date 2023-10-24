@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useProductContext } from '../contexts/ProductContext';
-import ProductItem from './productitem';
+import ProductItem from './productlistitem';
 import { fetchProducts } from '../services/api';
 import { Product } from '../interfaces/ProductInterface';
 

@@ -1,9 +1,12 @@
 import './style.css';
 import { useState } from 'react';
 import { AuthContext } from './contexts/AuthContext';
+import { UserProvider } from './contexts/UserContext';
+import { ProductContextProvider } from './contexts/ProductContext';
+
+
 import Login from './pages/login';
 import Home from './pages/home';
-import { UserProvider } from './contexts/UserContext';
 
 export const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -12,7 +15,14 @@ export const App = () => {
   return (
     <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated, token, setToken }}>
       <UserProvider>
-        {isAuthenticated ? <Home /> : <Login />}
+        {
+          isAuthenticated ?
+            <ProductContextProvider>
+              <Home />
+            </ProductContextProvider>
+            :
+            <Login />
+        }
       </UserProvider>
     </AuthContext.Provider>
   );

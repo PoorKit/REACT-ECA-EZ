@@ -1,5 +1,6 @@
 import { Product } from '../interfaces/ProductInterface';
 import { useState, useRef, useEffect } from 'react';
+import ProductModal from './productmodal';
 
 type ProductItemProps = {
   product: Product;
@@ -9,6 +10,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   const [expanded, setExpanded] = useState(false);
   const [descriptionHeight, setDescriptionHeight] = useState<number | null>(null);
   const descriptionRef = useRef<HTMLParagraphElement | null>(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (descriptionRef.current) {
@@ -24,6 +26,15 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   const toggleLess = () => {
     setExpanded(false);
   };
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
 
   return (
     <li className="product-item bg-white rounded p-4 flex-grow flex flex-col">
@@ -48,7 +59,10 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
       <div className="flex-grow"></div>
       <div className="product-details mt-4 flex justify-between items-center">
         <span className="price font-bold text-lg">${product.price}</span>
-        <button className="bg-indigo-400 text-white px-2 py-1 rounded">Add to Cart</button>
+        <button className="bg-indigo-400 text-white px-2 py-1 rounded" onClick={openModal}>
+        Add to Cart
+      </button>
+      <ProductModal product={product} showModal={showModal} closeModal={closeModal} />
       </div>
     </li>
   );

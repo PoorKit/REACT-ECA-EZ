@@ -8,7 +8,7 @@ export function useAuthContext() {
   const isAuthenticated = useContext(AuthContext);
 
   if (isAuthenticated === undefined) {
-    throw new Error('useUserContext must be used with a DashboardContext');
+    throw new Error('useAuthContext is Undefined');
   }
 
   return isAuthenticated;

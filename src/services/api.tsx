@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { User } from '../interfaces/UserInterface';
+import { Product } from '../interfaces/ProductInterface';
 
 const apiUrl = 'https://fakestoreapi.com';
 
@@ -42,6 +43,13 @@ export const findMe = async (enteredUsername: string): Promise<User | null> => {
   }
 };
 
-// export const fetchProducts = async (): Promise<Product[]> => {
-  
-// }
+export const fetchProducts = async (): Promise<Product[]> => {
+  try {
+    const response = await axios.get(`${apiUrl}/products`);
+    return response.data;
+  } catch (error) {
+    // Handle any errors here
+    console.error('Error fetching products:', error);
+    throw error;
+  }
+};

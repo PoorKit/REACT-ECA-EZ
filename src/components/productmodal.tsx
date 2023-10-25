@@ -1,19 +1,29 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { toast } from 'react-hot-toast';
+import { useCartContext } from '../contexts/CartContext';
 
 const ProductModal = ({ product, showModal, closeModal }) => {
     const [quantity, setQuantity] = useState(1);
+    const { addToCart } = useCartContext();
 
     const handleAddToCart = () => {
-        // Implement your logic for adding the product to the cart here.
-        handleSuccess();
+        const success = addToCart(product, quantity);
+        if (success) {
+            handleSuccess();
+        } else {
+            handleFail();
+        }
     };
 
     const handleSuccess = () => {
         toast.success('Added to Cart');
         closeModal();
-      };
+    };
+
+    const handleFail = () => {
+        toast.error("Failed to add the product to the cart");
+    };
 
     // Modal Limitations on Dynamic Sizing
     const customModalStyles = {

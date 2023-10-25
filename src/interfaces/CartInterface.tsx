@@ -1,8 +1,11 @@
 export interface Cart {
-    id:       number;
     userId:   number;
     date:     Date;
     products: CartProduct[];
+}
+
+export interface ReturnedCart extends Cart {
+    id: number;
 }
 
 export interface CartProduct {

@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { User } from '../interfaces/UserInterface';
 import { Product } from '../interfaces/ProductInterface';
+import { Cart, ReturnedCart } from '../interfaces/CartInterface';
 
 const apiUrl = 'https://fakestoreapi.com';
 
@@ -19,7 +20,9 @@ export const login = async (userData: LoginRequest): Promise<LoginResponse> => {
       `${apiUrl}/auth/login`,
       userData
     );
-    return response.data;
+    if (response.data){
+      return response.data;
+    } 
   } catch (error) {
     throw error;
   }
@@ -48,8 +51,16 @@ export const fetchProducts = async (): Promise<Product[]> => {
     const response = await axios.get(`${apiUrl}/products`);
     return response.data;
   } catch (error) {
-    // Handle any errors here
     console.error('Error fetching products:', error);
     throw error;
+  }
+};
+
+export const sendCart = async (cartData: Cart): Promise<ReturnedCart> => {
+  try {
+      const response = await axios.post('https://fakestoreapi.com/carts', cartData);
+      return response.data;
+  } catch (error) {
+      throw new Error('Failed to create cart: ' + error.message);
   }
 };

@@ -39,7 +39,7 @@ export const ProductList = () => {
     }, [products, searchString, selectedCategory]);
 
     return (
-        <div className={`p-4 bg-slate-300 min-h-screen w-full ${!filteredProducts || filteredProducts.length === 0 ? 'overflow-y-hidden' : 'overflow-y-auto'}`}>
+        <div className={`${!filteredProducts || filteredProducts.length === 0 ? 'overflow-y-hidden' : 'overflow-y-auto'}`}>
             {filteredProducts && filteredProducts.length > 0 ? (
                 <ul className='grid grid-cols-5 gap-4 pb-12'>
                     {filteredProducts.map((product) => (
@@ -47,7 +47,9 @@ export const ProductList = () => {
                     ))}
                 </ul>
             ) : (
-                <p>No products match your criteria.</p>
+                <div className="bg-gray-200 rounded-md p-4 text-center">
+                    <p>No products match your criteria.</p>
+                </div>
             )}
         </div>
     );

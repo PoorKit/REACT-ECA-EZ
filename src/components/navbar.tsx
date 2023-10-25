@@ -1,11 +1,12 @@
-import { useState } from 'react';
 import { useProductContext } from "../contexts/ProductContext";
 import { useUserContext } from "../contexts/UserContext";
+import { useCartContext } from "../contexts/CartContext";
 
 function Navbar({ isOpen, toggleSidebar }) {
+    const { cart } = useCartContext();
     const { user } = useUserContext();
     const { searchString, setSearchString, categories, selectedCategory, setSelectedCategory } = useProductContext();
-    
+
 
     const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedCategory(event.target.value);
@@ -21,12 +22,12 @@ function Navbar({ isOpen, toggleSidebar }) {
                     <input
                         type="text"
                         placeholder="Search..."
-                        value={searchString}
+                        value={searchString ? searchString : ""}
                         onChange={(e) => setSearchString(e.target.value)}
                         className="px-2 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300 w-full mr-1"
                     />
                     <select
-                        value={selectedCategory}
+                        value={selectedCategory ? selectedCategory : ""}
                         onChange={handleCategoryChange}
                         className="text-blue-500 hover:text-blue-700 bg-white py-2 px-4 rounded-md"
                     >
@@ -49,6 +50,11 @@ function Navbar({ isOpen, toggleSidebar }) {
                 >
                     {isOpen ? "⏵" : "☰"}
                 </button>
+                {!isOpen && cart.products.length > 0 && (
+                    <div className="absolute top-0 right-0 mt-2 mr-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center">
+                        {cart.products.length}
+                    </div>
+                )}
             </div>
         </div>
     );

@@ -1,5 +1,4 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { fetchProducts } from '../services/api';
+import { createContext, useContext, useState, ReactNode } from 'react';
 import { Product } from '../interfaces/ProductInterface';
 
 type ProductContextValue = {
@@ -9,8 +8,8 @@ type ProductContextValue = {
     setCategories: (categories: string[]) => void;
     selectedCategory: string | null;
     setSelectedCategory: (selectedCategory: string | null) => void;
-    searchString: string | null;
-    setSearchString: (searchString: string | null) => void;
+    searchString: string | "";
+    setSearchString: (searchString: string | "") => void;
 };
 
 const ProductContext = createContext<ProductContextValue | undefined>(undefined);

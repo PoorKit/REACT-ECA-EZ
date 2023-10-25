@@ -1,6 +1,10 @@
 import './style.css';
 import { Toaster } from 'react-hot-toast';
 import { useState } from 'react';
+import {
+  BrowserRouter as Router,
+} from "react-router-dom";
+
 import { AuthContext } from './contexts/AuthContext';
 import { UserProvider } from './contexts/UserContext';
 import { ProductContextProvider } from './contexts/ProductContext';
@@ -10,6 +14,7 @@ import Login from './pages/login';
 import Home from './pages/home';
 
 import Modal from 'react-modal';
+import { CartContextProvider } from './contexts/CartContext';
 Modal.setAppElement('#app');
 
 export const App = () => {
@@ -22,7 +27,10 @@ export const App = () => {
         {
           isAuthenticated ?
             <ProductContextProvider>
-              <Home />
+              <CartContextProvider>
+                <Router>
+                  <Home />
+                </Router>
               <Toaster
                 toastOptions={{
                   success: {
@@ -40,6 +48,7 @@ export const App = () => {
                     },
                   },
                 }} />
+                </CartContextProvider>
             </ProductContextProvider>
             :
             <Login />

@@ -19,6 +19,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "react-scripts": "latest",
     "tailwindcss": "^3.3.3"
   },

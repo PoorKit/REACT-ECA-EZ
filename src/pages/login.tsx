@@ -112,7 +112,7 @@ function Login() {
         </div>
         <div className="mt-4">
           <a
-            href="https://github.com/yourusername/your-repo"
+            href="https://github.com/PoorKit/REACT-ECA-EZ"
             target="_blank"
             rel="noopener noreferrer"
             className="text-indigo-600 hover:underline"

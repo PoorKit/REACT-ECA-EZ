@@ -28,7 +28,7 @@ export const App = () => {
           isAuthenticated ?
             <ProductContextProvider>
               <CartContextProvider>
-                <Router>
+                <Router basename='/REACT-ECA-EZ'>
                   <Home />
                 </Router>
               <Toaster

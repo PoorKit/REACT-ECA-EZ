@@ -7,6 +7,7 @@ Initialized using StackBlitz
 - Demonstrate the use of useEffect throughout the application
 
 Limitations:
+- Backend is provided by https://fakestoreapi.com
+- Saving changes to Database not possible
 
-Backend is provided by https://fakestoreapi.com
-Saving changes to Database not possible
+

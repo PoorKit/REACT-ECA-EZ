@@ -2,7 +2,7 @@
   "name": "react-eca-ez",
   "version": "0.0.0",
   "private": true,
-  "homepage": "http://poorkit.github.io/REACT-ECA-EZ",
+  "homepage": "https://poorkit.github.io/REACT-ECA-EZ/",
   "dependencies": {
     "@types/react": "18.2.31",
     "@types/react-dom": "18.2.14",

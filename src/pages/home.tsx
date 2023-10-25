@@ -4,16 +4,14 @@ import {
   Route,
 } from "react-router-dom";
 
-import { useUserContext } from '../contexts/UserContext';
-
 import Sidebar from "../components/sidebar";
 import Navbar from '../components/navbar';
 
 import { ProductList } from '../components/productlist';
 import CartList from '../components/cartlist';
+import Profile from '../components/profile';
 
 export default function Home() {
-  const { user } = useUserContext();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -28,6 +26,7 @@ export default function Home() {
           <Routes>
             <Route path="/" element={<ProductList />}/>
             <Route path='/cart' element={<CartList />}/>
+            <Route path='/profile' element={<Profile />}/>
           </Routes>
         </div>
       </div>

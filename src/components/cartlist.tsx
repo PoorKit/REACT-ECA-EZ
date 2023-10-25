@@ -32,6 +32,11 @@ const CartList: React.FC<CartProps> = () => {
 
     // Function to handle the checkout
     const handleCheckout = async () => {
+        if (cart.products.length === 0) {
+            toast.error("Your cart is empty.");
+            return;
+        }
+
         setIsLoading(true);
         try {
             const success = await sendCart(cart);
@@ -46,7 +51,6 @@ const CartList: React.FC<CartProps> = () => {
         } finally {
             setIsLoading(false)
         }
-
     };
 
     const handleSuccess = () => {
@@ -58,7 +62,7 @@ const CartList: React.FC<CartProps> = () => {
     };
 
     return (
-        <div className="p-4 w-full items-center flex flex-col h-screen bg-stone-300 rounded-2xl">
+        <div className="p-4 w-full items-center flex flex-col bg-white rounded-2xl h-fit">
             <h1 className="text-2xl font-semibold mb-4">My Cart</h1>
             {cart.products.length === 0 ? (
                 <p className="text-gray-500">Your cart is empty.</p>
@@ -82,9 +86,9 @@ const CartList: React.FC<CartProps> = () => {
                 </div>
                 <button
                     onClick={handleCheckout}
-                    className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 w-64"
+                    className={`bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 w-64 ${cart.products.length === 0 && 'cursor-not-allowed'}`}
                 >
-                    {isLoading ? <ActivityIndicator isLoading={isLoading} text={"Loading..."} /> : "Checkout"}
+                    {isLoading ? <ActivityIndicator isLoading={isLoading} text={"Loading..."} /> : cart.products.length === 0 ? "Empty Cart" : "Checkout"}
                 </button>
             </div>
         </div>

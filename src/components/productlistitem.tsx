@@ -40,6 +40,10 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
     <li className="product-item bg-white rounded p-4 flex-grow flex flex-col">
       <img src={product.image} alt={product.title} className="aspect-square object-contain" />
       <h2 className='text-xl font-bold'>{product.title}</h2>
+      <div>
+          <span className="text-indigo-600">{product.rating.rate} / 5</span>
+          <span className="text-gray-500 ml-2">({product.rating.count} reviews)</span>
+        </div>
       <p
         ref={descriptionRef}
         className={`description ${expanded || (descriptionHeight && descriptionHeight < 80) ? '' : 'line-clamp-4'} text-slate-500`}

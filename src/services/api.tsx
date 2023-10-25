@@ -26,7 +26,7 @@ export const login = async (userData: LoginRequest): Promise<LoginResponse> => {
   } catch (error) {
     throw error;
   }
-};
+}; 
 
 export const findMe = async (enteredUsername: string): Promise<User | null> => {
   try {
@@ -45,6 +45,17 @@ export const findMe = async (enteredUsername: string): Promise<User | null> => {
     throw error;
   }
 };
+
+export const editMe = async (userDetails: User): Promise<User> =>{
+  try{
+    const response = await axios.put(`${apiUrl}/users/${userDetails.id}`, userDetails);
+    if (response.data){
+      return response.data;
+    }
+  }catch(error){
+    throw error;
+  }
+}
 
 export const fetchProducts = async (): Promise<Product[]> => {
   try {

@@ -18,7 +18,7 @@ const CartListItem: React.FC<CartListItemProps> = ({ cartProduct, product }) => 
     const totalCost = product.price * cartProduct.quantity;
 
     return (
-        <li key={cartProduct.productId} className="mb-2 flex items-start bg-white rounded-lg p-4 border-2 border-black w-full">
+        <li key={cartProduct.productId} className="mb-2 flex items-start bg-stone-100 rounded-lg p-4 border-2 border-black w-full">
             <div className="mr-4">
                 <img src={product.image} alt={product.title} className="w-32 h-32 aspect-square" />
             </div>

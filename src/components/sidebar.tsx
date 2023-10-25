@@ -40,6 +40,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                         )}
                     </li>
                 </Link>
+                <Link to="/profile">
+                    <li className="text-white p-2 hover:bg-gray-800 flex justify-between">
+                        <span>My Profile</span>
+                    </li>
+                </Link>
 
             </ul>
             <div className="logout-button p-2 text-white hover-bg-gray-800">

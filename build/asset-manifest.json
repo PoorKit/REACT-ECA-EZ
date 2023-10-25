@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/REACT-ECA-EZ/static/css/main.1582d07d.css",
-    "main.js": "/REACT-ECA-EZ/static/js/main.6fc6061e.js",
+    "main.css": "/REACT-ECA-EZ/static/css/main.d902a73c.css",
+    "main.js": "/REACT-ECA-EZ/static/js/main.68a056c0.js",
     "index.html": "/REACT-ECA-EZ/index.html",
-    "main.1582d07d.css.map": "/REACT-ECA-EZ/static/css/main.1582d07d.css.map",
-    "main.6fc6061e.js.map": "/REACT-ECA-EZ/static/js/main.6fc6061e.js.map"
+    "main.d902a73c.css.map": "/REACT-ECA-EZ/static/css/main.d902a73c.css.map",
+    "main.68a056c0.js.map": "/REACT-ECA-EZ/static/js/main.68a056c0.js.map"
   },
   "entrypoints": [
-    "static/css/main.1582d07d.css",
-    "static/js/main.6fc6061e.js"
+    "static/css/main.d902a73c.css",
+    "static/js/main.68a056c0.js"
   ]
 }

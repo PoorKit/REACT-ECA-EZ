@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Modal from 'react-modal';
 import { toast } from 'react-hot-toast';
 import { useCartContext } from '../contexts/CartContext';
